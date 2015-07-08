@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ztx.www</groupId>
+    <artifactId>dc</artifactId>
+    <version>2.0-SNAPSHOT</version>
+
+    <!--<profiles>-->
+        <!--&lt;!&ndash;sit&ndash;&gt;-->
+        <!--<profile>-->
+            <!--<id>sit</id>-->
+            <!--<properties>-->
+                <!--<env>sit</env>-->
+            <!--</properties>-->
+            <!--<activation>-->
+                <!--<activeByDefault>true</activeByDefault>-->
+            <!--</activation>-->
+        <!--</profile>-->
+    <!--</profiles>-->
+
+    <build>
+        <!--<filters>-->
+            <!--<filter>/Users/s016374/IdeaProjects/HelloDBmaintain/conf/${env}-env.conf</filter>-->
+        <!--</filters>-->
+
+        <plugins>
+            <plugin>
+            <groupId>org.dbmaintain</groupId>
+            <artifactId>dbmaintain-maven-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+                <databases>
+                    <database>
+                        <!--<dialect>oracle</dialect>-->
+                        <driverClassName>oracle.jdbc.driver.OracleDriver</driverClassName>
+                        <!--<userName>${user}</userName>-->
+                        <userName>eam</userName>
+                        <!--<password>${password}</password>-->
+                        <password>eam</password>
+                        <!--<url>${address}</url>-->
+                        <url>jdbc:oracle:thin:@//10.1.5.2:1521/clappsit</url>
+                        <!--<schemaNames>${schema}</schemaNames>-->
+                        <schemaNames>eam</schemaNames>
+                    </database>
+                </databases>
+                <autoCreateDbMaintainScriptsTable>true</autoCreateDbMaintainScriptsTable>
+                <scriptLocations>./db/</scriptLocations>
+                <!--<scriptEncoding>utf-8</scriptEncoding>-->
+                <!--<fromScratchEnabled>true</fromScratchEnabled>-->
+                <!--<qualifiers>release</qualifiers>-->
+                <!--<patchQualifiers>01_#patch_myscript.sql</patchQualifiers>-->
+                <!--<includedQualifiers>release</includedQualifiers>-->
+                <!--<excludedQualifiers>test</excludedQualifiers>-->
+                <!--<allowOutOfSequenceExecutionOfPatches>true</allowOutOfSequenceExecutionOfPatches>-->
+            </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.oracle</groupId>
+                        <artifactId>ojdbc14</artifactId>
+                        <version>10</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>

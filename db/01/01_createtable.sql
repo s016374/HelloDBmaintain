@@ -1,0 +1,1 @@
+CREATE TABLE APerson(LastName varchar2(20),FirstName varchar2(20),Address varchar2(20),Age int);
